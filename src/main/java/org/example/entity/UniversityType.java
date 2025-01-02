@@ -1,6 +1,6 @@
 package org.example.entity;
 
-public enum UniversityName {
+public enum UniversityType {
     shabaneh,
     gheireEntefaei,
     Pardis,

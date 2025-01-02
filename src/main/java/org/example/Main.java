@@ -1,17 +1,51 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import org.example.Service.StudentService;
+import org.example.entity.*;
+
+import javax.swing.*;
+import java.util.Scanner;
+
+public class Main {
+    static StudentService studentService = new StudentService();
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("welcome to portal university ....");
+        while (true) {
+            System.out.println("1- signup..");
+            System.out.println("2- login...");
+            System.out.println("3- exit");
+            System.out.println("please input your choice");
+            String input = scanner.nextLine();
+            switch (input) {
+                case "1":
+                    //todo signup..
+                    registerSignup();
+                    break;
+                case "2":
+                    //todo login
+                    break;
+                case "3":
+                    return;
+            }
         }
+
     }
+
+    public static void registerSignup() {
+
+        Student student = new Student("ali,yahayei", "reza", "fatemeh", "123", "1111", "2024-12-12", "87", "payam", UniversityType.AzadUniversity, "2024",
+                "aaa", "98", GhaboliType.Roozaneh, Gender.male, true, MaghtaTahsili.Kardani, false);
+
+        studentService.signUp(student);
+
+
+    }
+
+
 }

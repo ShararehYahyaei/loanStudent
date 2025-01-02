@@ -1,2 +1,6 @@
-package org.example.entity;public enum Gender {
+package org.example.entity;
+
+public enum Gender {
+    female,
+    male
 }

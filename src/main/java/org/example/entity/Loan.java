@@ -1,12 +1,13 @@
 package org.example.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.PackagePrivate;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -16,7 +17,12 @@ public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    @Enumerated(EnumType.STRING)
     LoanType loanType;
-    double loanAmount;
+    BigDecimal loanAmount;
+    @Enumerated(EnumType.STRING)
     PaymentType paymentType;
+    LocalDate dueDate;
+    @OneToMany(mappedBy = "loan")
+    List<Student> students;
 }

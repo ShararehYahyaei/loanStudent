@@ -1,8 +1,9 @@
 package org.example.entity;
 
 public enum KartBanki {
-    Melli,
-    Refah,
-    Tejarat,
-    maskan
+    MELLI,
+    REFAH,
+    TEJARAT,
+    MASKAN
 }
+

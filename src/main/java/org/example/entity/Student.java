@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.PackagePrivate;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -14,43 +16,35 @@ import lombok.experimental.PackagePrivate;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String name;
-    String LastName;
-    String fatherName;
-    String motherName;
-    String passportId;
+    String firstName;
+    String lastName;
     String nationalCode;
-    String birthDate;
+    LocalDate birthDate;
     String studentNumber;
-    String universityName;
-    UniversityType universityType;
-    String yearStart;
-    String userName;
-    String password;
-    GhaboliType ghaboliType;
-    Gender gender;
     boolean isMarried;
+
+    @Enumerated(EnumType.STRING)
+    Gender gender;
+
+    @Enumerated(EnumType.STRING)
     MaghtaTahsili maghtaTahsili;
-    Boolean accommodation;
+
+    @ManyToOne
+    @JoinColumn(name = "loan_id")
+    private Loan loan;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    KartBankiDetails kartBankiDetails;
+    @ManyToOne
+    @JoinColumn(name = "university_id")
+    private University university;
+
+    Boolean hasDormitory;
+
+    @OneToOne
+    @JoinColumn(name = "kart_banki_id")
+    KartBankiDetails kartBankiDetail;
 
 
-    public Student(String name, String lastName, String fathername, String motherName, String number1, String date, String number2, String payam, UniversityType universityType, String number3, String aaa, String number4, GhaboliType ghaboliType,
-                   Gender gender, boolean b, MaghtaTahsili maghtaTahsili, boolean b1) {
-        this.name = name;
-        LastName = lastName;
-        this.fatherName = fathername;
-        this.motherName = motherName;
-        this.passportId = number1;
-        this.nationalCode = number2;
-        this.birthDate = date;
-        this.studentNumber = number3;
-        this.universityType = universityType;
-        this.yearStart = number4;
-        this.gender = gender;
-        this.isMarried = b;
-        this.maghtaTahsili = maghtaTahsili;
-        this.accommodation = b1;
 
-    }
 }

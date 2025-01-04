@@ -16,6 +16,7 @@ import java.time.LocalDate;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
     String firstName;
     String lastName;
     String nationalCode;

@@ -39,12 +39,6 @@ public class Main {
 
     public static void registerSignup() {
 
-        Student student = new Student("ali,yahayei", "reza", "fatemeh", "123", "1111", "2024-12-12", "87", "payam", UniversityType.AzadUniversity, "2024",
-                "aaa", "98", GhaboliType.Roozaneh, Gender.male, true, MaghtaTahsili.Kardani, false);
-
-        studentService.signUp(student);
-
-
     }
 
 

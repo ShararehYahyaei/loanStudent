@@ -34,17 +34,14 @@ public class Student {
     private Loan loan;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "kart_banki_id")
     KartBankiDetails kartBankiDetails;
+
     @ManyToOne
     @JoinColumn(name = "university_id")
     private University university;
 
     Boolean hasDormitory;
-
-    @OneToOne
-    @JoinColumn(name = "kart_banki_id")
-    KartBankiDetails kartBankiDetail;
-
 
 
 }
